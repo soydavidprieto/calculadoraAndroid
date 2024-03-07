@@ -257,7 +257,7 @@
         android:id="@+id/nine"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:background="#EEF5FF"
         android:text="9"
@@ -305,7 +305,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="David Prioeto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
