@@ -84,5 +84,4 @@ class MainActivity : AppCompatActivity() {
     private fun actualizarOperacion() {
         operacion.text = entradaActual.toString()
     }
-
 }
