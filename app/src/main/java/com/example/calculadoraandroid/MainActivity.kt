@@ -48,5 +48,41 @@ class MainActivity : AppCompatActivity() {
             actualizarOperacion()
         }
     }
+    private fun botonIgual() {
+        if (entradaActual.isNotEmpty() && !ultimaOperacion) {
+            val partes = entradaActual.toString().split(" ")
+            val operandos = partes.filter { it.matches(Regex("-?\\d+(\\.\\d+)?")) }.map { it.toDouble() }
+            val operaciones = partes.filter { it in setOf("+", "-", "X", "/") }
+
+            var resultado = operandos.firstOrNull() ?: 0.0
+
+            for (i in 0 until operaciones.size) {
+                val operacion = operaciones[i]
+                val siguienteOperando = operandos[i + 1]
+
+                resultado = when (operacion) {
+                    "+" -> resultado + siguienteOperando
+                    "-" -> resultado - siguienteOperando
+                    "X" -> resultado * siguienteOperando
+                    "/" -> resultado / siguienteOperando
+                    else -> resultado
+                }
+            }
+
+            vistaResultado.text = resultado.toString()
+            entradaActual.clear()
+            ultimaOperacion = false
+        }
+    }
+
+    private fun limpiarCampos() {
+        entradaActual.clear()
+        vistaResultado.text = "0.0"
+        actualizarOperacion()
+    }
+
+    private fun actualizarOperacion() {
+        operacion.text = entradaActual.toString()
+    }
 
 }
